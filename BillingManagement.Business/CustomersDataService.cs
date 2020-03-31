@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using BillingManagement.Models;
+using System.Collections.Generic;
 
-namespace BillingManagement.Models
+namespace BillingManagement.Business
 {
     public class CustomersDataService : IDataService<Customer>
     {
