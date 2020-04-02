@@ -15,7 +15,7 @@
                     <MenuItem Header="_Sauvegarder"/>
                     <MenuItem Header="_Fermer"/>
                     <Separator/>
-                    <MenuItem Header="_Nouveau client"/>
+                    <MenuItem Header="_Nouveau client" Click="NouveauClient_Click"/>
                     <Separator/>
                     <MenuItem Header="_Quitter"/>
                 </MenuItem>
@@ -47,7 +47,10 @@
                 </Grid.RowDefinitions>
                 <StackPanel Margin="6" Orientation="Horizontal" x:Name="spHeader">
                     <TextBlock Text="Liste des clients" />
-                    <Button Content="Nouveau client" Margin="6 0"/>
+                    <ToolBar Margin="6 0">
+                        <Button Content="Nouveau" Margin="6 0" Click="NouveauClient_Click"/>
+                    </ToolBar>
+                    
                 </StackPanel>
                 <ListView Grid.Row="1" ItemsSource="{Binding Customers}"
                           SelectedItem="{Binding SelectedCustomer}"

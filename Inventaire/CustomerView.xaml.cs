@@ -1,11 +1,6 @@
-﻿using BillingManagement.Business;
-using BillingManagement.Models;
+﻿using BillingManagement.Models;
 using BillingManagement.UI.ViewModels;
 using System;
-using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
 using System.Windows;
 
 namespace Inventaire
@@ -15,19 +10,23 @@ namespace Inventaire
     /// </summary>
     public partial class CustomerView : Window
     {
-        
 
+        CustomersViewModel viewModel;
         public CustomerView(CustomersViewModel vm)
         {
             InitializeComponent();
+            DataContext = new CustomersViewModel();
+            viewModel = vm;
         }
 
-        //private void CustomerNew_Click(object sender, RoutedEventArgs e)
-        //{
-        //    Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
-        //    Customers.Add(temp);
-        //    SelectedCustomer = temp;            
-        //}
+        private void NouveauClient_Click(object sender, RoutedEventArgs e)
+        {
+            Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
+            viewModel.Customers.Add(temp);
+            viewModel.SelectedCustomer = temp;
+            lvCustomers.ItemsSource = viewModel.Customers;
+            lvCustomers.SelectedItem = temp;
+        }
 
         //private void CustomerDelete_Click(object sender, RoutedEventArgs e)
         //{
