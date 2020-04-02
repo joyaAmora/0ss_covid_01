@@ -19,13 +19,18 @@ namespace Inventaire
             viewModel = vm;
         }
 
-        private void NouveauClient_Click(object sender, RoutedEventArgs e)
+        private void NewCommand_Executed(object sender, System.Windows.Input.ExecutedRoutedEventArgs e)
         {
             Customer temp = new Customer() { Name = "Undefined", LastName = "Undefined" };
             viewModel.Customers.Add(temp);
             viewModel.SelectedCustomer = temp;
             lvCustomers.ItemsSource = viewModel.Customers;
             lvCustomers.SelectedItem = temp;
+        }
+
+        private void NewCommand_CanExecute(object sender, System.Windows.Input.CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = true;
         }
 
         //private void CustomerDelete_Click(object sender, RoutedEventArgs e)

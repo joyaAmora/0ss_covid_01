@@ -7,6 +7,9 @@
         mc:Ignorable="d"
         Title="Gestion de clients" Width="800" Height="500"
         MinHeight="500" MinWidth="640">
+    <Window.CommandBindings>
+        <CommandBinding Command="ApplicationCommands.New" Executed="NewCommand_Executed" CanExecute="NewCommand_CanExecute"/>
+    </Window.CommandBindings>
     <DockPanel>
         <StackPanel DockPanel.Dock="Top">
             <Menu>
@@ -15,7 +18,7 @@
                     <MenuItem Header="_Sauvegarder"/>
                     <MenuItem Header="_Fermer"/>
                     <Separator/>
-                    <MenuItem Header="_Nouveau client" Click="NouveauClient_Click"/>
+                    <MenuItem Header="_Nouveau client" Command="ApplicationCommands.New"/>
                     <Separator/>
                     <MenuItem Header="_Quitter"/>
                 </MenuItem>
@@ -48,7 +51,7 @@
                 <StackPanel Margin="6" Orientation="Horizontal" x:Name="spHeader">
                     <TextBlock Text="Liste des clients" />
                     <ToolBar Margin="6 0">
-                        <Button Content="Nouveau" Margin="6 0" Click="NouveauClient_Click"/>
+                        <Button Content="Nouveau" Margin="6 0" Command="ApplicationCommands.New"/>
                     </ToolBar>
                     
                 </StackPanel>
