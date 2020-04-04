@@ -33,17 +33,21 @@ namespace Inventaire
             e.CanExecute = true;
         }
 
-        //private void CustomerDelete_Click(object sender, RoutedEventArgs e)
-        //{
-        //    int currentIndex = Customers.IndexOf(SelectedCustomer);
+        private void CustomerDelete_Click(object sender, RoutedEventArgs e)
+        {
+            int currentIndex = ((CustomersViewModel)DataContext).Customers.IndexOf(((CustomersViewModel)DataContext).SelectedCustomer);
 
-        //    if (currentIndex > 0)
-        //        currentIndex--;
+            if (currentIndex > 0)
+                currentIndex--;
 
-        //    Customers.Remove(SelectedCustomer);
+            ((CustomersViewModel)DataContext).Customers.Remove(((CustomersViewModel)DataContext).SelectedCustomer);
 
-        //    lvCustomers.SelectedIndex = currentIndex;
+            lvCustomers.SelectedIndex = currentIndex;
 
-        //}
+        }
+        private void ButtonQuiter_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
+        }
     }
 }

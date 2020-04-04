@@ -52,6 +52,7 @@
                     <TextBlock Text="Liste des clients" />
                     <ToolBar Margin="6 0">
                         <Button Content="Nouveau" Margin="6 0" Command="ApplicationCommands.New"/>
+                        <Button Content="Quitter" Margin="6 0" Click="ButtonQuiter_Click"/>
                     </ToolBar>
                     
                 </StackPanel>
@@ -118,7 +119,7 @@
 
                 </StackPanel>
                 <StackPanel Grid.Row="6" Grid.Column="2" Margin="6">
-                    <Button Content="Supprimer client"/>
+                    <Button Content="Supprimer client" Click="CustomerDelete_Click"/>
                 </StackPanel>
                 <Image Margin="6" Grid.Row="7"
                        Source="{Binding SelectedCustomer.PicturePath}"
